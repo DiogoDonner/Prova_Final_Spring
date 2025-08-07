@@ -1,0 +1,29 @@
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome TEXT NOT NULL,
+    email text NOT NULL,
+    data_cadastro date not null
+);
+
+drop table curtidas;
+
+CREATE TABLE postagens (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    conteudo TEXT NOT NULL,
+    data_criacao datetime NOT NULL,
+	autor integer references usuarios(id)
+);
+
+CREATE TABLE comentarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    conteudo TEXT NOT NULL,
+	autor integer not null references usuarios(id),
+    postagens integer references postagens(id)
+);
+
+
+CREATE TABLE curtidas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario integer NOT NULL references usuarios(id),
+    postagens integer references postagens(id)
+);
