@@ -2,12 +2,16 @@ package com.senac.provaSpring.Entidades;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Entity
 public class Comentarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String conteudo;
+    private LocalDateTime dataCriacao;
     @ManyToOne
     @JoinColumn(name = "autor")
     private Usuarios autor;
@@ -45,5 +49,13 @@ public class Comentarios {
 
     public void setPostagens(Postagens postagens) {
         this.postagens = postagens;
+    }
+
+    public LocalDateTime getDataCriacao() {
+        return dataCriacao;
+    }
+
+    public void setDataCriacao(LocalDateTime dataCriacao) {
+        this.dataCriacao = dataCriacao;
     }
 }

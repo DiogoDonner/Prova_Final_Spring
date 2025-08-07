@@ -17,4 +17,16 @@ public class ComentariosRequestDTO {
 
     public ComentariosRequestDTO() {
     }
+
+    public String getConteudo() {
+        return conteudo;
+    }
+
+    public Integer getIdAutor() {
+        return idAutor;
+    }
+
+    public Integer getIdPostagem() {
+        return idPostagem;
+    }
 }

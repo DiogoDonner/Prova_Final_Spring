@@ -3,21 +3,39 @@ package com.senac.provaSpring.DTOS;
 import com.senac.provaSpring.Entidades.Comentarios;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class ComentariosResponseDTO {
-    public class comentariosResponseDTO {
+
         private String conteudo;
         private String autor;
         private String postagem;
-        private LocalDate dataCriacao;
+        private LocalDateTime dataCriacao;
 
-        public comentariosResponseDTO(Comentarios comentarios) {
+        public ComentariosResponseDTO(Comentarios comentarios) {
             this.conteudo = comentarios.getConteudo();
             this.autor = comentarios.getAutor().getNome();
             this.postagem = comentarios.getPostagens().getConteudo();
+            this.dataCriacao = comentarios.getDataCriacao();
         }
 
-        public comentariosResponseDTO() {
+        public ComentariosResponseDTO() {
         }
+
+    public String getConteudo() {
+        return conteudo;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public String getPostagem() {
+        return postagem;
+    }
+
+    public LocalDateTime getDataCriacao() {
+        return dataCriacao;
     }
 }
+

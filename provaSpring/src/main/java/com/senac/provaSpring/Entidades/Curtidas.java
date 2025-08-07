@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 @Entity
 public class Curtidas {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @ManyToOne
     @JoinColumn(name = "usuario")
@@ -37,4 +37,5 @@ public class Curtidas {
     public void setPostagens(Postagens postagens) {
         this.postagens = postagens;
     }
+
 }
